@@ -13,3 +13,16 @@ This API provides a simple interface to validate financial transactions and flag
 ```bash
 git clone https://github.com/Dnyaneshsasale/financial-api.git
 cd financial-api
+
+## Example Request
+
+POST /validate
+
+```json
+{
+  "id": 1,
+  "amount": 15000,
+  "currency": "USD",
+  "sender": "Alice",
+  "receiver": "Bob"
+}
