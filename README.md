@@ -18,11 +18,9 @@ cd financial-api
 
 POST /validate
 
-```json
 {
-  "id": 1,
-  "amount": 15000,
-  "currency": "USD",
-  "sender": "Alice",
-  "receiver": "Bob"
+  "transaction_id": "TXN501",
+  "amount": 2000,
+  "sender": "A1",
+  "receiver": "B2"
 }
