@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background-color: #f5f6fa; }
+        h1 { text-align: center; }
+
+        .card {
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .success { color: green; font-weight: bold; }
+        .failed { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h1>Financial Transaction Dashboard</h1>
+
+<div>
+    <div class="card">
+        <h3>Total Transactions</h3>
+        <p>{{ total }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Successful</h3>
+        <p>{{ success }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Failed</h3>
+        <p>{{ failed }}</p>
+    </div>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Status</th>
+        <th>Flags</th>
+    </tr>
+
+    {% for tx in transactions %}
+    <tr>
+        <td>{{ tx.transaction_id }}</td>
+        <td>{{ tx.amount }}</td>
+        <td>{{ tx.sender }}</td>
+        <td>{{ tx.receiver }}</td>
+        <td class="{{ tx.status }}">{{ tx.status }}</td>
+        <td>{{ tx.flags }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
