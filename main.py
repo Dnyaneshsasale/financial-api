@@ -1,22 +1,14 @@
-from fraud_detection import check_duplicate, check_frequency
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
-from fastapi import Request
 from pydantic import BaseModel
 from database import collection
 from datetime import datetime
+from fraud_detection import check_duplicate, check_frequency
 from logger import logger
-app = FastAPI()
-from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
-
-from database import collection
 
 app = FastAPI()
-
-# ✅ ADD HERE (after app = FastAPI())
 templates = Jinja2Templates(directory="templates")
-# ✅ ADD THIS PART
+
 @app.get("/")
 def home():
     return {"message": "API is running"}
